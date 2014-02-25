@@ -35,11 +35,12 @@ You can use `puppet describe user` and `puppet resource user` for help using and
 
 4. Type the following deadly incantation into your manifest:
 
-{% highlight ruby %}
-user { 'ralph':
-	ensure => 'absent',
-}
-{% endhighlight %}
+		{% highlight ruby %}
+		user { 'ralph':
+			ensure => 'absent',
+		}
+		{% endhighlight %}
+
 
 5. Save the file and exit nano.
 
@@ -85,31 +86,31 @@ This is a very handy tool for learning to write code in Puppet's DSL and is a st
 
 4. Luckily for Ralph, manifests can create as well as destroy. Open your manifest again:
 
-	nano ralph.pp
+		nano ralph.pp
 
 5. Write the following code to your manifest:
 
 {% highlight ruby %}
 user { 'ralph':
-	ensure => 'present',
-	gid => '501',
-	home => '/home/ralph',
+	ensure  => 'present',
+	gid      => '501',
+	home     => '/home/ralph',
 	password => '!!',
-	uid => '501',
+	uid      => '501',
 }
 {% endhighlight %}
 
 6. Check your syntax:
 
-	puppet parser validate ralph.pp
+		puppet parser validate ralph.pp
 	
 7. Simulate your changes:
 
-	puppet apply --noop ralph.pp
+		puppet apply --noop ralph.pp
 	
 8. And apply:
 
-	puppet apply ralph.pp
+		puppet apply ralph.pp
 	
 9. Now check in on Ralph again. Hopefully he has recovered fully from his bout of non-existence.
 
