@@ -350,14 +350,22 @@ sup {
     vertical-align: super;
     line-height: 0;
 }
+div.highlight {
+	width: 66%;
+}
+
+div.highlight code.ruby {
+	margin-left: 20px;	
+}
+
 div.lvm-callout{
     background: #7C6AAB;
     color: #fff;
     float: right;
-    width: 30%;
+    width: 25%;
     border-radius: 4px;
     padding: 1em;
-    margin-right: 1.2em;
+    margin-left: 1em;
     page-break-inside: avoid;
 }
 
