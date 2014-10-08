@@ -175,7 +175,7 @@ package { $apache_pkg :
 }
 {% endhighlight %}
 
-This would allow you to always install and manage the right Apache package for a machine's operating system. Aaccounting for the differences between various platforms is an important part of writing flexible and re-usable Puppet code. It is a paradigm you will encounter frequently in published Puppet modules.
+This would allow you to always install and manage the right Apache package for a machine's operating system. Accounting for the differences between various platforms is an important part of writing flexible and re-usable Puppet code. It is a paradigm you will encounter frequently in published Puppet modules.
 
 Also note that Puppet will choose the appropriate _provider_ for the package depending on the operating system, without you having to mention it. On Debian-based systems, for example, it may use `apt` and on RedHat systems, it will use `yum`.
 
