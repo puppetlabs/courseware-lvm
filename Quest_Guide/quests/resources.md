@@ -7,6 +7,7 @@ layout: default
 
 ### Prerequisites
 
+- Begin Quest
 - Welcome Quest
 - Power of Puppet Quest
 
