@@ -206,6 +206,19 @@ Go back to your `site.pp` manifest and include the
 parameters to this class, so a simple `include` statement will work in place of
 a parameterized class declaration. 
 
+## As follows
+
+ 48 class { '::mysql::server':
+ 49   root_password => 'strongpassword',
+ 50   override_options => { 'mysqld' => { 'max_connections' => '1024' } },
+ 51 }
+ 52
+ 53 class { 'mysql::server::account_security':
+ 54 }
+ 55
+ 56 }
+
+
 Trigger a Puppet run, and you will see notices indicating that the test database
 and two users have been removed:
 
