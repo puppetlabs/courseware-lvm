@@ -9,7 +9,7 @@ layout: default
 
 - Learn how to install the puppet agent on a node.
 - Use the PE console to sign the certificate of a new node.
-- Understand a simple puppet architecture with a puppet master
+- Understand a simple Puppet architecture with a puppet master
   serving multiple agent nodes.
 - Use the `site.pp` manifest to classify nodes.
 
@@ -139,7 +139,7 @@ Remember, use the following credentials to connect to the console:
 
 Navigate to the *Node Management* > *Inventory* and look under the
 *Unsigned certificates* tab. You will see a section with the heading
-**Adding nodes to manage wtih puppet Enterprise**. Beneath this, you will
+**Adding nodes to manage wtih Puppet Enterprise**. Beneath this, you will
 find a curl script that you can copy to any nodes you wish to manage with
 puppet.
 
