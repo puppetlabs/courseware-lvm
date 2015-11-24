@@ -45,14 +45,14 @@ review.
 `puppet apply` compiles a catalog based on a specified manifest and applies that
 catalog locally. Any node with the puppet agent installed can run a `puppet apply`
 locally. You can get quite a bit of use from `puppet apply` if you want to use
-Puppet on an agent without involving a puppet master server. For example, if you
+puppet on an agent without involving a puppet master server. For example, if you
 are doing local testing of puppet code or experimenting with a small infrastructure
 without a master server.
 
 `puppet agent -t` triggers a puppet run. This puppet run is a conversation between
 the agent node and the puppet master. First, the agent sends a collection of facts
 to the puppet master. The master takes these facts and uses them to determine what
-Puppet code should be applied to the node. You've seen two ways that this
+puppet code should be applied to the node. You've seen two ways that this
 classification can be configured: the `site.pp` manifest and the PE console node
 classifier. The master then evaluates the puppet code to compile a catalog that
 describes exactly how the resources on the node should be configured. The master
