@@ -15,15 +15,15 @@ layout: default
 
 ## Getting Started
 
-So far, you've been running both the puppet agent and master on the Learning VM.
-Though you certainly can use puppet to configure your puppet master server,
-most of the work you'll be doing with puppet will be on separate nodes.
+So far, you've been managing the puppet master server using the puppet agent on
+that node. Though you certainly can use puppet to configure your puppet master
+server, most of the work you'll be doing with puppet will be on separate nodes.
 
-In this quest, we'll use a tool called `docker` to simulate multiple nodes
-on the Learning VM. With these new nodes, you can learn how to install the puppet
-agent, sign the certificates of your new nodes to allow them to join your puppetized
-infrastructure, and finally use the `site.pp` manifest to apply some simple
-puppet code on these new nodes.
+In this quest, we'll use a tool called `docker` to simulate multiple nodes on
+the Learning VM. With these new nodes, you can learn how to install the puppet
+agent, sign the certificates of your new nodes to allow them to join your
+puppetized infrastructure, and finally use the `site.pp` manifest to apply some
+simple puppet code on these new nodes.
 
 When you're ready to get started, type the following command:
 
@@ -39,7 +39,8 @@ So far, we've been using two different puppet commands to apply our puppet code:
 `puppet apply`, and `puppet agent -t`. If you haven't felt confident about the
 distinction between these two commands, it could be because we've been doing
 everything on a single node where the difference between applying changes
-locally and involving the puppet master clear. Let's take a moment to review.
+locally and involving the puppet master isn't clear. Let's take a moment to 
+review.
 
 `puppet apply` compiles a catalog based on a specified manifest and applies that
 catalog locally. Any node with the puppet agent installed can run a `puppet apply`
@@ -56,9 +57,10 @@ classification can be configured: the `site.pp` manifest and the PE console node
 classifier. The master then evaluates the puppet code to compile a catalog that
 describes exactly how the resources on the node should be configured. The master
 sends that catalog to the agent on the node, which applies it. Finally, the agent
-sends its report of the puppet run back to the master. Though we have disabled
-automatic puppet runs on the Learning VM, they are scheduled by default to happen
-automatically every half hour.
+sends its report of the puppet run back to the master. By default, these Puppet
+runs are scheduled to happen automatically every half hour. We have disable
+these automatic runs on the Learning VM, to provide you explicit control over
+when puppet runs (and reconfigures the node as needed). 
 
 Though you only need a single node to learn to write and apply puppet code, getting
 the picture of how the puppet agent and master nodes communicate will be much
@@ -71,7 +73,8 @@ to act as additional agent nodes in your infrastructure. Note that docker is not
 a part of puppet; it's an open-source tool we're using to help build a multi-node
 learning environment. While running a puppet agent on a docker container on a
 VM gives us a convenient way to see how puppet works on multiple nodes, it isn't a
-recommended way to set up real-life puppet infrastructure!
+recommended way to set up real-life puppet infrastructure! Unless, of course,
+your infrastructure consists primarily of docker containers.
 
 {% task 1 %}
 ---
@@ -181,9 +184,9 @@ Let's use facter to get some information about this node:
 You can see that though the Learning VM itself is running CentOS, our new nodes
 run Ubuntu.
 
-  facter fqdn
+  facter certname
 
-We can also see that this node's fqdn is `database.learning.puppetlabs.vm`. This
+We can also see that this node's certname is `database.learning.puppetlabs.vm`. This
 is how we can identify the node in the PE console or the `site.pp` manifest on
 our master.
 
@@ -263,7 +266,7 @@ following message:
 
   Exiting; no certificate found and waitforcert is disabled
 
-### certificates
+### Certificates
 
 Though you've created your new nodes and installed the puppet agent, there's
 one more step before they can join your puppet infrastructure. The puppet master
