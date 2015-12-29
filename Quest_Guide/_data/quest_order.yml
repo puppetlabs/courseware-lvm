@@ -22,6 +22,8 @@
    title: Defined Resource Types
  - url: /quests/agent_setup.html
    title: Agent Setup
+ - url: /quests/application_orchestrator.html
+   title: Application Orchestrator
  - url: /afterword.html
    title: Afterword
  - url: /glossary.html
