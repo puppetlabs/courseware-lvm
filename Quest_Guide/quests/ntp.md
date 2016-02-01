@@ -297,7 +297,7 @@ include two from the ntp.org pool and one known nearby timeserver.
 
 {% task 5 %}
 ---
-- execute: puppet apply -t
+- execute: puppet agent -t
 {% endtask %}
 
 Once you've made your changes to the `site.pp` manifest and used the `puppet parser`
