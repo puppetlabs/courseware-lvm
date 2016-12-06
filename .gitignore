@@ -4,4 +4,6 @@ test.html
 .DS_Store
 *.zip
 Gemfile.lock
-
+.vagrant
+.bundle/
+spec/fixtures/
